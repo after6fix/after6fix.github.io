@@ -2,3 +2,21 @@ src/
 *.psd
 _work/
 mockups/
+
+# secrets / local-only (never commit)
+.env
+*.env
+.env.*
+*.key
+*.pem
+*.p12
+*token*
+*secret*
+*credential*
+api_keys*
+config.local.*
+*.log
+_profiles/
+chrome_profile*/
+*.ip
+ip_*.txt
