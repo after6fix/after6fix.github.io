@@ -64,18 +64,18 @@
   },
   {
    "id": 4,
-   "name": "스피세프 초파리 끈끈이 트랩 3개 (노란 공)",
+   "name": "코멧 사선컷팅 테이프 클리너 3단 핸들+거치대+리필 4개",
    "category": "청소",
-   "price": 4900,
-   "orig_price": 12000,
+   "price": 11890,
+   "orig_price": 11890,
    "image": "img/p4.webp",
-   "coupang_url": "https://www.coupang.com/vp/products/8732317663?itemId=25374592380",
+   "coupang_url": "https://link.coupang.com/a/hEjglUmso0",
    "reel_url": "",
    "best": false,
-   "sale": true,
+   "sale": false,
    "soldout": false,
    "added": "2026-10-07",
-   "active": false
+   "active": true
   }
  ]
 }
