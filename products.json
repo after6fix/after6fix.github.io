@@ -76,6 +76,21 @@
    "soldout": false,
    "added": "2026-10-07",
    "active": true
+  },
+  {
+   "id": 5,
+   "name": "블럭마트 계란트레이 30구",
+   "category": "주방",
+   "price": 10000,
+   "orig_price": 10000,
+   "image": "img/p5.webp",
+   "coupang_url": "https://link.coupang.com/a/hGqr99NXy0",
+   "reel_url": "",
+   "best": false,
+   "sale": false,
+   "soldout": false,
+   "added": "2026-10-08",
+   "active": true
   }
  ]
 }
