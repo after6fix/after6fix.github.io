@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index,follow">
 <title>퇴근후해결템 — 제품 카탈로그</title>
 <meta name="description" content="퇴근하고 집 오면 또 집안일… 그거 해결해주는 템만 골라요. 영상 번호로 바로 찾는 쿠팡 제품 카탈로그.">
@@ -11,108 +11,119 @@
 <meta property="og:description" content="퇴근하고 집 오면 또 집안일… 그거 해결해주는 템만 골라요. 영상 번호로 바로 찾는 쿠팡 제품 카탈로그.">
 <meta property="og:image" content="https://after6fix.github.io/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F2F2F0">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
+/* 3초 테스트: 첫눈엔 번호 검색창(핵심), 번호로 찾으면 꽉 찬 쿠팡 버튼(보조). 목록의 쿠팡 버튼·브랜드·필터는 한 단계 낮춘다. */
 :root{
-  --paper:#F2F2F0;--ink:#0A0A0A;--hot:#FF3B00;--mute:#5A5A57;--line:#0A0A0A;
-  --sans:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
-  --mono:"JetBrains Mono","SF Mono",Consolas,monospace;
+  --bg:#FFFFFF;--ink:#111111;--sub:#5F5F5F;--faint:#767676;--line:#ECECEA;--well:#F4F4F2;
+  --cta:#D63A0C;--cta-press:#B53009;
+  --best-bg:#111111;--best-fg:#FFFFFF;--sale-bg:#FDE9E3;--sale-fg:#A82D08;--out-bg:#E6E6E4;--out-fg:#444444;
+  --r:14px;--gut:16px;
+  --sans:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;
-  background-image:linear-gradient(rgba(10,10,10,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.07) 1px,transparent 1px);
-  background-size:24px 24px;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;word-break:keep-all;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-.mono{font-family:var(--mono)}
-.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gut) calc(32px + env(safe-area-inset-bottom))}
 
-.wrap{max-width:1100px;margin:0 auto;border-left:2px solid var(--line);border-right:2px solid var(--line);background:var(--paper);min-height:100vh}
+/* ===== 헤더: 브랜드 → 고지 (작게, 그러나 항상 보이게) ===== */
+.hd{padding:20px 0 12px;display:grid;gap:10px}
+.brand-row{display:flex;align-items:center;gap:10px}
+.logo{width:28px;height:28px;border-radius:8px;flex:none;object-fit:cover}
+.brand{font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.handle{font-size:13px;color:var(--sub);margin-left:auto;white-space:nowrap}
+.handle:hover{color:var(--ink)}
+.tag{font-size:13px;color:var(--faint)}
+.disc{font-size:12px;line-height:1.5;color:var(--sub);background:var(--well);border-radius:10px;padding:8px 12px}
+.disc b{font-weight:700;color:var(--ink);margin-right:6px}
 
-/* ===== HEADER ===== */
-.hd{border-bottom:2px solid var(--line)}
-.hd-top{display:flex;justify-content:space-between;padding:8px 16px;border-bottom:1px solid var(--line);color:var(--mute)}
-.hd-main{display:grid;grid-template-columns:40px 1fr;gap:12px 14px;padding:18px 16px 16px;align-items:center}
-.logo{width:40px;height:40px;border:2px solid var(--line);background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:12px}
-.brand{font-size:clamp(26px,7vw,48px);font-weight:900;letter-spacing:-.04em;line-height:.95}
-.tag{grid-column:1/-1;font-size:14px;color:var(--ink);padding-top:4px}
-.disc{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);padding:10px 12px;font-size:12.5px;line-height:1.45;background:#fff}
-.disc b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;background:var(--hot);color:#fff;padding:2px 6px;white-space:nowrap;margin-top:2px}
-
-/* ===== CONTROLS ===== */
-.ctl{border-bottom:2px solid var(--line)}
-.search{display:grid;grid-template-columns:auto 1fr auto;border-bottom:2px solid var(--line);background:#fff}
-.search label{padding:0 14px;display:flex;align-items:center;border-right:2px solid var(--line);background:var(--paper)}
-.search input{border:0;background:transparent;font:inherit;font-size:16px;padding:14px 12px;width:100%;outline:none;color:var(--ink);min-width:0}
-.search input:focus{background:#fff;box-shadow:inset 0 0 0 2px var(--hot)}
-.search input::placeholder{color:#8a8a86}
-.search output{padding:0 14px;display:flex;align-items:center;border-left:2px solid var(--line);background:var(--paper);white-space:nowrap}
-.chips{display:flex;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+/* ===== 번호 검색: 화면에서 제일 큰 입력, 스크롤해도 위에 붙어 있음 ===== */
+.ctl{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0 8px;margin:0 calc(-1 * var(--gut));padding-left:var(--gut);padding-right:var(--gut)}
+.ctl.stuck{box-shadow:0 6px 12px -10px rgba(0,0,0,.25)}
+.search{position:relative}
+.search svg{position:absolute;left:16px;top:50%;width:20px;height:20px;transform:translateY(-50%);color:var(--ink);pointer-events:none}
+.search input{width:100%;height:54px;border:2px solid var(--ink);border-radius:var(--r);background:var(--bg);font:inherit;font-size:17px;font-weight:500;color:var(--ink);padding:0 84px 0 46px;outline:none;-webkit-appearance:none;appearance:none}
+.search input::placeholder{color:var(--sub);font-weight:500}
+.search input:focus{box-shadow:0 0 0 3px rgba(17,17,17,.12)}
+.search input::-webkit-search-cancel-button{display:none}
+.search output{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--sub);font-variant-numeric:tabular-nums}
+.clear{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;border-radius:50%;font-size:20px;line-height:1;color:var(--sub);cursor:pointer}
+.clear[hidden]{display:none}
+.has-q output{right:52px}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:10px 0 2px;margin:0 calc(-1 * var(--gut));padding-left:var(--gut);padding-right:var(--gut)}
 .chips::-webkit-scrollbar{display:none}
-.chip{flex:0 0 auto;font-family:var(--mono);letter-spacing:.06em;font-weight:700;padding:11px 16px;border:0;border-right:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-transform:uppercase;font-size:13px;line-height:1}
-.chip:last-child{border-right:0}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.chip:focus-visible{outline:2px solid var(--hot);outline-offset:-2px}
+.chip{flex:none;height:44px;padding:0 12px;border:0;border-radius:999px;background:none;color:var(--sub);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--well);color:var(--ink);font-weight:700}
+:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
 
-/* ===== GRID ===== */
-.meta{display:flex;justify-content:space-between;padding:8px 16px;border-bottom:2px solid var(--line);color:var(--mute)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border-bottom:2px solid var(--line)}
-@media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
+/* ===== 카드: 컴포넌트 하나를 규격대로 반복 ===== */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px;padding-top:8px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 20px}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .grid:empty{display:none}
-.card{background:var(--paper);display:flex;flex-direction:column;position:relative;min-width:0}
-.card:hover .fig,.card:focus-visible .fig{background:#fff}
-.card:focus-visible{outline:3px solid var(--hot);outline-offset:-3px}
-.fig{aspect-ratio:1/1;border-bottom:2px solid var(--line);position:relative;overflow:hidden;background:#EAEAE6;
-  background-image:linear-gradient(rgba(10,10,10,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.1) 1px,transparent 1px);background-size:20px 20px}
-.fig img{width:100%;height:100%;object-fit:contain;padding:10%}
-.fig .ph{position:absolute;inset:0;display:none;place-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);text-align:center;line-height:1.6}
+.card{display:flex;flex-direction:column;min-width:0}
+.fig{position:relative;display:block;aspect-ratio:1/1;border-radius:var(--r);background:var(--well);overflow:hidden}
+.fig img{width:100%;height:100%;object-fit:contain;padding:9%;transition:transform .25s ease}
+@media(hover:hover){.card:hover .fig img{transform:scale(1.04)}}
+.fig .ph{position:absolute;inset:0;display:none;place-items:center;font-size:13px;color:var(--faint)}
 .fig.noimg img{display:none}.fig.noimg .ph{display:grid}
-.cross{position:absolute;width:10px;height:10px;pointer-events:none}
-.cross::before,.cross::after{content:"";position:absolute;background:var(--ink)}
-.cross::before{left:4px;top:0;width:2px;height:10px}.cross::after{top:4px;left:0;width:10px;height:2px}
-.cross.tl{top:6px;left:6px}.cross.br{bottom:6px;right:6px}
-.num{position:absolute;top:0;left:0;font-family:var(--mono);font-weight:700;font-size:clamp(20px,5vw,30px);line-height:1;padding:6px 8px 6px 6px;background:var(--paper);border-right:2px solid var(--line);border-bottom:2px solid var(--line);letter-spacing:-.02em}
-.stamps{position:absolute;top:0;right:0;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
-.stamp{font-family:var(--mono);font-size:10px;letter-spacing:.1em;font-weight:700;padding:4px 7px;border:2px solid var(--line);border-top:0;border-right:0;background:#fff;color:var(--ink);text-transform:uppercase}
-.stamp.hot{background:var(--hot);color:#fff;border-color:var(--hot)}
-.stamp.inv{background:var(--ink);color:var(--paper)}
-.body{padding:10px 10px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
-.cat{color:var(--mute);display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 6px;align-items:baseline}
-.cat>span:first-child{white-space:nowrap}
-.reel{font:inherit;font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:700;color:var(--hot);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;white-space:nowrap}
-.reel:hover{color:var(--ink)}
-.reel:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
-.name{font-size:15px;font-weight:600;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em;word-break:keep-all}
-.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 8px;margin-top:auto;padding-top:8px;border-top:1px solid var(--line)}
-.price .now{font-size:19px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.price .was{font-family:var(--mono);font-size:12px;color:var(--mute);text-decoration:line-through;text-decoration-color:var(--hot);text-decoration-thickness:2px}
-.price .off{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--hot)}
-.go{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-top:2px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.1em;font-weight:700;text-transform:uppercase;background:#fff}
-.card:hover .go{background:var(--ink);color:var(--paper)}
-.card.soldout .fig img,.card.soldout .name,.card.soldout .price{opacity:.4}
-.card.soldout .fig::after{content:"SOLD OUT";position:absolute;left:-20%;right:-20%;top:50%;transform:translateY(-50%) rotate(-12deg);text-align:center;font-family:var(--mono);font-weight:700;font-size:clamp(22px,6vw,36px);letter-spacing:.15em;color:var(--ink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);background:rgba(242,242,240,.85);padding:4px 0}
-.empty{padding:48px 16px;text-align:center;border-bottom:2px solid var(--line)}
-.empty strong{display:block;font-family:var(--mono);font-size:clamp(28px,8vw,56px);letter-spacing:-.03em;line-height:1;margin-bottom:12px}
-.empty p{color:var(--mute);font-size:14px}
+.tags{position:absolute;top:8px;left:8px;display:flex;gap:4px;flex-wrap:wrap}
+.t{font-size:12px;font-weight:600;line-height:1;padding:5px 8px;border-radius:999px}
+.t.best{background:var(--best-bg);color:var(--best-fg)}
+.t.sale{background:var(--sale-bg);color:var(--sale-fg)}
+.t.out{background:var(--out-bg);color:var(--out-fg)}
+.info{display:flex;flex-direction:column;gap:2px;padding:10px 2px 0;flex:1}
+.no{font-size:16px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.no small{font-size:12px;font-weight:500;color:var(--faint);margin-left:6px;letter-spacing:0}
+.name{font-size:14px;font-weight:500;line-height:1.4;color:#2A2A2A;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.8em}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px;padding-top:4px;font-variant-numeric:tabular-nums}
+.price .off{font-size:16px;font-weight:800;color:var(--cta)}
+.price .now{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.price .was{font-size:12px;color:var(--faint);text-decoration:line-through;width:100%}
+.price{margin-bottom:10px}
+.act{display:flex;gap:6px;margin-top:auto}
+.cta{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;height:44px;border-radius:12px;background:var(--sale-bg);color:var(--sale-fg);font-size:14px;font-weight:700;white-space:nowrap}
+.cta:active{background:#F9D5CA}
+.reel{flex:none;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;color:var(--ink);background:none;box-shadow:inset 0 0 0 1.5px #DADAD7}
+.reel svg{width:18px;height:18px}
+.card.soldout .fig img{opacity:.35}
+.card.soldout .name,.card.soldout .price{color:var(--faint)}
+.card.soldout .cta{background:var(--out-bg);color:var(--out-fg)}
+/* 번호로 딱 1개 찾았을 때: 가로형 큰 카드로 바꿔 버튼까지 첫 화면 안에 */
+.grid.hit{grid-template-columns:minmax(0,1fr);max-width:640px}
+.hit .card{display:grid;grid-template-columns:minmax(0,42%) minmax(0,1fr);gap:14px;align-items:start}
+.hit .info{padding-top:2px}
+.hit .no{font-size:20px}
+.hit .cta{height:52px;font-size:16px;background:var(--cta);color:#fff}
+.hit .cta:active{background:var(--cta-press)}
+.hit .reel{width:52px;height:52px}
 
-/* ===== FOOTER ===== */
-.ft{padding:20px 16px 28px;display:grid;gap:14px}
-.ft-row{display:grid;grid-template-columns:1fr;gap:2px;background:var(--line);border:2px solid var(--line)}
-@media(min-width:768px){.ft-row{grid-template-columns:1fr 1fr 1fr}}
-.ft-cell{background:var(--paper);padding:12px 14px;min-width:0}
-.ft-cell .lbl{display:block;color:var(--mute);margin-bottom:6px}
-.ft-cell a{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;word-break:break-all}
-.ft-cell a:hover{color:var(--hot)}
-.ft-note{font-size:13px;color:var(--ink);line-height:1.5}
-.stripe{height:10px;background:repeating-linear-gradient(135deg,var(--ink) 0 12px,var(--paper) 12px 24px)}
-.ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;color:var(--mute)}
+.empty{padding:48px 8px;text-align:center}
+.empty strong{display:block;font-size:18px;font-weight:700;margin-bottom:6px}
+.empty p{color:var(--sub);font-size:14px;margin-bottom:16px}
+.empty button{height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--ink);background:none;font:inherit;font-weight:600;cursor:pointer}
+
+/* ===== 푸터 ===== */
+.ft{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:8px;font-size:13px;color:var(--sub)}
+.ft a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.ft-links{display:flex;flex-wrap:wrap;gap:4px 16px}
+
+@media(min-width:720px){
+  :root{--gut:24px}
+  .hd{padding-top:32px;grid-template-columns:1fr auto;align-items:end;column-gap:24px}
+  .brand{font-size:22px}
+  .logo{width:36px;height:36px;border-radius:10px}
+  .brand-row{grid-column:1/-1}
+  .disc{grid-column:1/-1}
+  .ctl{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:16px;align-items:center}
+  .chips{margin:0;padding:0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
@@ -248,39 +259,36 @@ img{display:block;max-width:100%}
 
 <div class="wrap">
   <header class="hd">
-    <div class="hd-top lbl"><span>[ CATALOG ]</span><span id="handle"></span><span id="rev"></span></div>
-    <div class="hd-main">
-      <div class="logo" aria-hidden="true">A6</div>
-      <h1 class="brand" id="brandName"></h1>
-      <p class="tag" id="tagline"></p>
-      <p class="disc"><b>고지</b><span id="disclosure"></span></p>
+    <div class="brand-row">
+      <img class="logo" src="icon.png" alt="" width="36" height="36">
+      <h1 class="brand" id="brandName">퇴근후해결템</h1>
+      <a class="handle" id="handle" href="#" target="_blank" rel="noopener"></a>
     </div>
+    <p class="tag" id="tagline"></p>
+    <p class="disc"><b>광고 고지</b><span id="disclosure"></span></p>
   </header>
 
-  <section class="ctl" aria-label="검색 및 필터">
-    <div class="search">
-      <label for="q" class="lbl">검색</label>
-      <input id="q" type="search" placeholder="번호(3, #003) 또는 제품명" autocomplete="off" aria-label="제품 번호 또는 이름으로 검색">
-      <output class="lbl" id="count" for="q" aria-live="polite">0 / 0</output>
+  <section class="ctl" id="ctl" aria-label="번호 검색 및 필터">
+    <div class="search" id="searchBox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="릴스에 나온 번호 입력 (예: 5)" autocomplete="off" enterkeyhint="search" aria-label="영상 번호 또는 제품명으로 검색">
+      <output id="count" for="q" aria-live="polite"></output>
+      <button type="button" class="clear" id="clear" aria-label="검색어 지우기" hidden>&times;</button>
     </div>
     <div class="chips" id="chips" role="group" aria-label="필터"></div>
   </section>
 
-  <div class="meta lbl"><span>>>> 최신순</span><span id="sortNote">NEWEST FIRST</span></div>
   <main class="grid" id="grid" aria-label="제품 목록"></main>
   <div class="empty" id="empty" hidden>
-    <strong>[ 0 ]</strong>
-    <p>검색 결과가 없어요. 번호나 제품명을 다시 확인해 주세요.</p>
+    <strong id="emptyTitle">찾는 제품이 없어요</strong>
+    <p id="emptyMsg">영상 끝에 나온 번호를 다시 확인해 주세요.</p>
+    <button type="button" id="reset">전체 제품 보기</button>
   </div>
 
   <footer class="ft">
-    <div class="stripe" aria-hidden="true"></div>
-    <div class="ft-row">
-      <div class="ft-cell"><span class="lbl">Notice / 안내</span><p class="ft-note" id="priceNote"></p></div>
-      <div class="ft-cell"><span class="lbl">Contact / 문의</span><a id="contact" href="#"></a></div>
-      <div class="ft-cell"><span class="lbl">Instagram</span><a id="insta" href="#" target="_blank" rel="noopener"></a></div>
-    </div>
-    <div class="ft-bot lbl"><span id="copy"></span><span>UNIT / KR-SEOUL</span></div>
+    <p id="priceNote"></p>
+    <div class="ft-links"><span>문의 <a id="contact" href="#"></a></span><span>인스타그램 <a id="insta" href="#" target="_blank" rel="noopener"></a></span></div>
+    <p id="copy"></p>
   </footer>
 </div>
 
@@ -290,6 +298,7 @@ img{display:block;max-width:100%}
   var pad = function(n){ return '#' + String(n).padStart(3,'0'); };
   var won = function(n){ return Number(n).toLocaleString('ko-KR') + '원'; };
   var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>';
 
   var grid = $('grid'), empty = $('empty'), q = $('q'), count = $('count'), chipsEl = $('chips');
   var products = [], active = 'all';
@@ -299,7 +308,7 @@ img{display:block;max-width:100%}
     $('brandName').textContent = B.name;
     $('tagline').textContent = B.tagline;
     $('disclosure').textContent = B.disclosure;
-    $('handle').textContent = '@' + B.handle;
+    $('handle').textContent = '@' + B.handle; $('handle').href = B.instagram;
     $('priceNote').textContent = B.price_note;
     $('contact').textContent = B.contact; $('contact').href = 'mailto:' + B.contact;
     $('insta').textContent = '@' + B.handle; $('insta').href = B.instagram;
@@ -307,7 +316,6 @@ img{display:block;max-width:100%}
 
     products = (D.products || []).filter(function(p){ return p.active !== false; })
       .sort(function(a,b){ return a.added < b.added ? 1 : a.added > b.added ? -1 : b.id - a.id; });
-    $('rev').textContent = products.length ? 'REV ' + products[0].added.slice(0,7).replace('-','.') : '';
 
     var filters = [['all','전체'],['best','베스트'],['sale','할인중']].concat((D.categories || []).map(function(c){ return ['cat:'+c, c]; }));
     if (filters.every(function(f){ return f[0] !== active; })) active = 'all';
@@ -316,20 +324,22 @@ img{display:block;max-width:100%}
       var b = document.createElement('button');
       b.className = 'chip'; b.type = 'button'; b.dataset.f = f[0]; b.textContent = f[1];
       b.setAttribute('aria-pressed', f[0] === active);
-      b.addEventListener('click', function(){
-        active = f[0];
-        chipsEl.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed', c.dataset.f === active); });
-        render();
-      });
+      b.addEventListener('click', function(){ setFilter(f[0]); });
       chipsEl.appendChild(b);
     });
     render();
   }
+  function setFilter(f){
+    active = f;
+    chipsEl.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed', c.dataset.f === active); });
+    render();
+  }
 
+  function numOf(term){ var n = term.replace(/^#/, ''); return /^\d+$/.test(n) ? parseInt(n,10) : null; }
   function matchQ(p, term){
     if (!term) return true;
-    var num = term.replace(/^#/, '');
-    if (/^\d+$/.test(num)) return String(p.id) === String(parseInt(num,10));
+    var n = numOf(term);
+    if (n !== null) return p.id === n;
     return p.name.toLowerCase().indexOf(term.toLowerCase()) !== -1;
   }
   function matchF(p){
@@ -342,47 +352,52 @@ img{display:block;max-width:100%}
   function card(p){
     var sale = p.sale && p.orig_price > p.price;
     var off = sale ? Math.round((1 - p.price / p.orig_price) * 100) : 0;
-    var stamps = '';
-    if (p.best) stamps += '<span class="stamp hot">베스트</span>';
-    if (sale) stamps += '<span class="stamp hot">할인중</span>';
-    if (p.soldout) stamps += '<span class="stamp inv">품절</span>';
-    return '<a class="card' + (p.soldout ? ' soldout' : '') + '" href="' + esc(p.coupang_url) + '" target="_blank" rel="noopener sponsored" aria-label="' + esc(pad(p.id) + ' ' + p.name + ' ' + won(p.price) + (p.soldout ? ' 품절' : '')) + '">' +
-      '<div class="fig">' +
-        '<img src="' + esc(p.image) + '" alt="" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\')">' +
-        '<div class="ph">NO IMAGE<br>' + pad(p.id) + '</div>' +
-        '<span class="cross tl"></span><span class="cross br"></span>' +
-        '<span class="num">' + pad(p.id) + '</span>' +
-        '<span class="stamps">' + stamps + '</span>' +
+    var tags = '';
+    if (p.soldout) tags += '<span class="t out">품절</span>';
+    if (p.best) tags += '<span class="t best">베스트</span>';
+    if (sale) tags += '<span class="t sale">할인</span>';
+    var href = esc(p.coupang_url), num = pad(p.id);
+    return '<article class="card' + (p.soldout ? ' soldout' : '') + '" data-id="' + p.id + '">' +
+      '<a class="fig" href="' + href + '" target="_blank" rel="noopener sponsored" tabindex="-1" aria-hidden="true">' +
+        '<img src="' + esc(p.image) + '" alt="" loading="lazy" decoding="async" width="600" height="600" onerror="this.parentNode.classList.add(\'noimg\')">' +
+        '<span class="ph">이미지 준비 중</span>' +
+        (tags ? '<span class="tags">' + tags + '</span>' : '') +
+      '</a>' +
+      '<div class="info">' +
+        '<span class="no">' + num + '<small>' + esc(p.category) + '</small></span>' +
+        '<h2 class="name">' + esc(p.name) + '</h2>' +
+        '<span class="price">' + (sale ? '<span class="off">' + off + '%</span>' : '') + '<span class="now">' + won(p.price) + '</span>' +
+          (sale ? '<span class="was">' + won(p.orig_price) + '</span>' : '') + '</span>' +
+        '<div class="act">' +
+          '<a class="cta" href="' + href + '" target="_blank" rel="noopener sponsored" aria-label="' + esc(num + ' ' + p.name + ' 쿠팡에서 보기' + (p.soldout ? ' (품절)' : '')) + '">쿠팡에서 보기</a>' +
+          (p.reel_url ? '<a class="reel" href="' + esc(p.reel_url) + '" target="_blank" rel="noopener" aria-label="' + esc(num + ' 영상 보기') + '" title="영상 보기">' + PLAY + '</a>' : '') +
+        '</div>' +
       '</div>' +
-      '<div class="body">' +
-        '<span class="lbl cat"><span>' + esc(p.category) + ' / ' + esc(String(p.added).replace(/-/g,'.')) + '</span>' +
-          (p.reel_url ? '<button type="button" class="reel" data-reel="' + esc(p.reel_url) + '" aria-label="' + esc(pad(p.id) + ' 영상 보기') + '">영상 보기</button>' : '') +
-        '</span>' +
-        '<span class="name">' + esc(p.name) + '</span>' +
-        '<span class="price"><span class="now">' + won(p.price) + '</span>' +
-          (sale ? '<span class="was">' + won(p.orig_price) + '</span><span class="off">-' + off + '%</span>' : '') +
-        '</span>' +
-      '</div>' +
-      '<span class="go"><span>쿠팡에서 보기</span><span>&rarr;</span></span>' +
-    '</a>';
+    '</article>';
   }
 
   function render(){
     var term = q.value.trim();
     var list = products.filter(function(p){ return matchF(p) && matchQ(p, term); });
+    var n = numOf(term);
+    if (n !== null && !list.length && active !== 'all') { setFilter('all'); return; }   // 번호 검색은 필터와 무관하게 찾는다
     grid.innerHTML = list.map(card).join('');
+    grid.classList.toggle('hit', n !== null && list.length === 1);
     empty.hidden = list.length > 0;
-    count.textContent = String(list.length).padStart(2,'0') + ' / ' + String(products.length).padStart(2,'0');
+    $('emptyTitle').textContent = n !== null ? pad(n) + ' 제품이 아직 없어요' : '찾는 제품이 없어요';
+    $('emptyMsg').textContent = n !== null ? '영상 끝에 나온 번호를 다시 확인해 주세요.' : '다른 이름이나 번호로 찾아보세요.';
+    count.textContent = term ? list.length + '개' : '';   // 기본 상태에선 검색창 안 잡음 제거
+    $('clear').hidden = !term; $('searchBox').classList.toggle('has-q', !!term);
   }
   q.addEventListener('input', render);
+  $('clear').addEventListener('click', function(){ q.value = ''; render(); q.focus(); });
+  $('reset').addEventListener('click', function(){ q.value = ''; setFilter('all'); });
 
-  // "영상 보기": open the reel without triggering the surrounding card link.
-  grid.addEventListener('click', function(e){
-    var b = e.target.closest('.reel');
-    if (!b) return;
-    e.preventDefault(); e.stopPropagation();
-    window.open(b.dataset.reel, '_blank', 'noopener');
-  });
+  // 검색창이 위에 붙으면 아래 그림자로 경계만 표시
+  if ('IntersectionObserver' in window) {
+    var s = document.createElement('div'); $('ctl').before(s);
+    new IntersectionObserver(function(e){ $('ctl').classList.toggle('stuck', !e[0].isIntersecting); }).observe(s);
+  }
 
   // 1) render inline fallback immediately; 2) replace with live products.json when reachable.
   var inlineText = $('data').textContent, inline = null;
@@ -392,7 +407,7 @@ img{display:block;max-width:100%}
   fetch('products.json?v=' + Date.now(), {cache: 'no-store'})
     .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function(D){ window.__dataSource = 'fetch'; if (JSON.stringify(D) !== JSON.stringify(inline)) init(D); })
-    .catch(function(){ if (!(inline && inline.brand)) { empty.hidden = false; empty.querySelector('p').textContent = '제품 데이터를 불러오지 못했어요.'; } });
+    .catch(function(){ if (!(inline && inline.brand)) { empty.hidden = false; $('emptyTitle').textContent = '제품을 불러오지 못했어요'; $('emptyMsg').textContent = '잠시 후 새로고침해 주세요.'; } });
 })();
 </script>
 </body>
