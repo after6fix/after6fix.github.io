@@ -16,7 +16,53 @@
   "청소",
   "기타"
  ],
- "products": [],
+ "products": [
+  {
+   "id": 1,
+   "name": "에버온 무타공 흡착식 주방 공간절약 360도 조리도구걸이",
+   "category": "주방",
+   "price": 9900,
+   "orig_price": 9900,
+   "image": "img/p1.webp",
+   "coupang_url": "https://link.coupang.com/a/hSkyvWN7me",
+   "reel_url": "",
+   "best": false,
+   "sale": false,
+   "soldout": false,
+   "added": "2026-10-22",
+   "active": true
+  },
+  {
+   "id": 2,
+   "name": "1+1 독일 졸링겐만능칼 만능 채칼구매1위 독일 채칼 만능채칼 1위 당근",
+   "category": "주방",
+   "price": 11800,
+   "orig_price": 11800,
+   "image": "img/p2.webp",
+   "coupang_url": "https://link.coupang.com/a/hO9BW8n4cm",
+   "reel_url": "",
+   "best": false,
+   "sale": false,
+   "soldout": false,
+   "added": "2026-10-22",
+   "active": true
+  },
+  {
+   "id": 3,
+   "name": "싱크대 탈수형 거름망 304 스테인리스 원터치 음식물거름망",
+   "category": "주방",
+   "price": 18900,
+   "orig_price": 18900,
+   "image": "img/p3.webp",
+   "coupang_url": "https://link.coupang.com/a/hRIOjCSMHQ",
+   "reel_url": "",
+   "best": false,
+   "sale": false,
+   "soldout": false,
+   "added": "2026-10-22",
+   "active": true
+  }
+ ],
  "archived_20261017": [
   {
    "id": 1,
