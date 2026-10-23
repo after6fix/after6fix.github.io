@@ -62,6 +62,51 @@
    "soldout": false,
    "added": "2026-10-22",
    "active": true
+  },
+  {
+   "id": 4,
+   "name": "미즈코스 1+1 안전 칼등 커버 논슬립 칼 손가락 손보호 나이프가드",
+   "category": "주방",
+   "price": 7800,
+   "orig_price": 7800,
+   "image": "img/p4.webp",
+   "coupang_url": "https://link.coupang.com/a/hRR9bgOwqi",
+   "reel_url": "",
+   "best": false,
+   "sale": false,
+   "soldout": false,
+   "added": "2026-10-23",
+   "active": true
+  },
+  {
+   "id": 5,
+   "name": "쿠코아 홈베이킹 스테인리스 반자동 회전 거품기",
+   "category": "주방",
+   "price": 7200,
+   "orig_price": 7200,
+   "image": "img/p5.webp",
+   "coupang_url": "https://link.coupang.com/a/hRjgNDoY0G",
+   "reel_url": "",
+   "best": false,
+   "sale": false,
+   "soldout": false,
+   "added": "2026-10-23",
+   "active": true
+  },
+  {
+   "id": 6,
+   "name": "에어컨 실외기 접이식 건조대 여행용 휴대 의류 걸이 랙",
+   "category": "수납",
+   "price": 7300,
+   "orig_price": 7300,
+   "image": "img/p6.webp",
+   "coupang_url": "https://link.coupang.com/a/hSsvlN4ijI",
+   "reel_url": "",
+   "best": false,
+   "sale": false,
+   "soldout": false,
+   "added": "2026-10-23",
+   "active": true
   }
  ],
  "archived_20261017": [
